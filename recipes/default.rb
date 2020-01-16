@@ -17,20 +17,27 @@ apt_update 'update'
 package 'nginx'
 package 'npm'
 
-# services
+# resource services+
 service 'nginx' do
   action [:enable, :start]
 end
 
-# service 'nginx' do
-#   action :enable
-# end
-#
-# service 'nginx' do
-#   action :start
-# end
-
 # npm installs
 nodejs_npm 'pm2'
-# run after enabling and starting nginx so integration tests pass
-# include_recipe 'pm2'
+
+# resource template
+template '/etc/nginx/sites-available/proxy.conf' do
+  source 'proxy.conf.erb'
+  notifies :restart, 'service[nginx]'
+end
+
+# resource link
+link '/etc/nginx/sites-enabled/proxy.conf' do
+  to '/etc/nginx/sites-available/proxy.conf'
+  notifies :restart, 'service[nginx]'
+end
+
+link '/etc/nginx/sites-enabled/default' do
+  action :delete
+  notifies :restart, 'service[nginx]'
+end
