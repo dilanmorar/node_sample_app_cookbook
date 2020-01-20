@@ -15,10 +15,15 @@ Create a cookbook that installs the nodejs sample app
 - Minimum documentation as MD file
 - All test passing
 - Should be working on port 80
-Ran the provision script manually.
+Maybe the file is not executable so ran the provision script manually.
 - we should be able to run the tests locally
 - we should be able to run the tests on AWS
 It ran using my kitchen.cloud.yml file but used my key but that had the (retry in 3 seconds) error
+caused by
+```
+transport:
+  ssh_key: ~/.ssh/dilan-morar-eng48.pem
+```
 
 What is packer:
 
