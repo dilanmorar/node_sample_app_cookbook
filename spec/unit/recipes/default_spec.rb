@@ -58,6 +58,45 @@ describe 'node_cookbook::default' do
 
   end
 
+end
+
+
+
+
+
+
+
+
+
+
+
+# describe 'mongo4_cookbook::default' do
+#
+#   context 'When all attributes are default, on Ubuntu 18.04' do
+#     # for a complete list of available platforms and versions see:
+#     # https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md
+#     platform 'ubuntu', '18.04'
+#
+#     it 'converges successfully' do
+#       expect { chef_run }.to_not raise_error
+#     end
+#
+#     it 'should install mongodb' do
+#       expect(chef_run).to install_package 'mongodb-org'
+#     end
+#
+#     it 'enables mongod service' do
+#       expect(chef_run).to enable_service 'mongod'
+#     end
+#
+#     it 'start mongod service' do
+#       expect(chef_run).to start_service 'mongod'
+#     end
+#
+#   end
+# end
+
+
   # context 'When all attributes are default, on CentOS 7' do
   #   # for a complete list of available platforms and versions see:
   #   # https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md
@@ -67,4 +106,4 @@ describe 'node_cookbook::default' do
   #     expect { chef_run }.to_not raise_error
   #   end
   # end
-end
+# end
